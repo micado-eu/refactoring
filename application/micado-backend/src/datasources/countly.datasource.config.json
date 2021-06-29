@@ -1,0 +1,44 @@
+{
+  "name": "countly",
+  "connector": "rest",
+  "baseURL": "https://{baseurl}",
+  "debug": true,
+  "options": {
+    "headers": {
+      "accept": "*/*",
+      "content-type": "application/json",
+      "Authorization": "Basic {auth}"
+    },
+    "strictSSL": false
+  },
+  "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://{baseurl}/o/analytics/dashboard",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Basic {auth}"
+        },
+        "query": {
+          "api_key": "{api_key}",
+          "app_id": "{app_id}"
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "dashboard": [
+          "api_key",
+          "app_id",
+          "auth",
+          "baseurl"
+        ]
+      }
+    }
+  ]
+}

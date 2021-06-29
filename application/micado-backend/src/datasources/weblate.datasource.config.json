@@ -1,0 +1,145 @@
+{
+  "name": "weblate",
+  "connector": "rest",
+  "baseURL": "http://{baseurl}",
+  "debug": true,
+  "options": {
+    "headers": {
+      "accept": "*/*",
+      "content-type": "application/json",
+      "Authorization": "Basic {auth}"
+    },
+    "strictSSL": false
+  },
+  "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "http://{baseurl}/api/translations",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Basic {auth}"
+        },
+        "query": {
+          "limit": 10,
+          "offset": 0
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "translations": [
+          "auth",
+          "baseurl"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "http://{baseurl}/api/projects/{project}/components",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Basic {auth}"
+        },
+        "query": {},
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "components": [
+          "project",
+          "auth",
+          "baseurl"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "http://{baseurl}/api/components/{project}/{component}/lock/",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Basic {auth}"
+        },
+        "query": {},
+        "body": {
+          "lock": "{lock}"
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "lock": [
+          "project",
+          "component",
+          "lock",
+          "auth",
+          "baseurl"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "http://{baseurl}/api/projects/{project}/repository/",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Token {auth}"
+        },
+        "query": {},
+        "body": {
+          "operation": "{operation}"
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "git": [
+          "project",
+          "operation",
+          "auth",
+          "baseurl"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "http://{baseurl}/api/projects/{project}/languages/",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json",
+          "Authorization": "Token {auth}"
+        },
+        "query": {},
+        "body": {
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "statistics": [
+          "project",
+          "auth",
+          "baseurl"
+        ]
+      }
+    }
+  ]
+}

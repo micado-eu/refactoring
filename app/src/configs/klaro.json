@@ -1,0 +1,64 @@
+{
+   "testing": false,
+   "elementID": "klaro",
+   "styling": {
+      "theme": [
+         "light",
+         "top",
+         "wide"
+      ]
+   },
+   "noAutoLoad": false,
+   "htmlTexts": true,
+   "embedded": false,
+   "groupByPurpose": true,
+   "storageMethod": "cookie",
+   "cookieName": "klaro",
+   "cookieExpiresAfterDays": 365,
+   "default": false,
+   "mustConsent": false,
+   "acceptAll": true,
+   "hideDeclineAll": false,
+   "hideLearnMore": false,
+   "noticeAsModal": false,
+   "disablePoweredBy": true,
+   "lang": "en",
+   "translations": {
+      "zz": {
+         "privacyPolicyUrl": "/privacy"
+      }
+   },
+   "services": [
+      {
+         "name": "Atlas",
+         "purposes": [
+            "CSOs"
+         ],
+         "contextualConsentOnly": true
+      },
+      {
+         "name": "CSI Piemonte",
+         "purposes": [
+            "CSOs"
+         ],
+         "contextualConsentOnly": true
+      },
+      {
+         "name": "usageTracker",
+         "purposes": [
+            "analytics"
+         ],
+         "cookies": [
+            "inline-tracker"
+         ],
+         "optOut": false
+      },
+      {
+         "name": "chat",
+         "default": true,
+         "purposes": [
+            "livechat"
+         ]
+      }
+   ]
+}

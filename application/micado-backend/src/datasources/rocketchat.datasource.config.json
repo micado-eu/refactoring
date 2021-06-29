@@ -1,0 +1,62 @@
+{
+  "name": "rocketchat",
+  "connector": "rest",
+  "baseURL": "",
+  "debug": true,
+  "options": {
+    "strictSSL": false
+  },
+  "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "POST",
+        "url": "https://{baseurl}/api/v1/users.create",
+        "headers": {
+          "accept": "*/*",
+          "Content-type": "application/json",
+          "X-Auth-Token": "{authToken}",
+          "X-User-Id": "{userid}"
+        },
+        "body": "{payload}",
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createUser": [
+          "payload",
+          "authToken",
+          "userid",
+          "baseurl"
+        ]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "https://{baseurl}/api/v1/login",
+        "headers": {
+          "accept": "*/*",
+          "Content-type": "application/json"
+        },
+        "body": {
+          "username": "{admin}",
+          "password":"{adminpwd}"
+        },
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "adminLogin": [
+          "admin",
+          "adminpwd",
+          "baseurl"
+        ]
+      }
+    }
+  ]
+}

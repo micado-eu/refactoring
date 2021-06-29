@@ -1,0 +1,167 @@
+{
+  "application_title": "MICADO app",
+  "privacy":{
+    "privacy":"Privacy policy",
+    "grant":"This project has received funding from the European Union’s H2020 Innovation Action under Grant Agreement No 822717"
+  },
+  "error404": "Sorry, nothing here...",
+  "consent": {
+    "title": "MICADO Consent management",
+    "consentModal_description": "Here you can see and customize the information that we collect about you. Entries marked as \"Example\" are just for demonstration purposes and are not really used on this website.",
+    "usageTracker": "Collection of statistical usage",
+    "usageTracker_title": "MICADO statistics",
+    "chat": "Chat widget",
+    "chat_title": "MICADO bot",
+    "analytics": "Analytics",
+    "livechat": "Livechat",
+    "CSOs": "CSOs participating in the MICADO ecosystem"
+  },
+  "menu": {
+    "title": "My Tools",
+    "chatbot": "MICADO Bot",
+    "tasks": "My personal plan",
+    "documents": "My documents",
+    "messenger": "My Messages",
+    "settings": "Settings",
+    "language": "en-US"
+  },
+  "button": {
+    "change_pass": "Change Password",
+    "add_document": "Add Document",
+    "save": "Save",
+    "remove": "Remove",
+    "back": "Back",
+    "go_back": "Go Back",
+    "ask_validation": "Ask for validation",
+    "download": "Download",
+    "view_model": "View model",
+    "view_pics": "View details",
+    "cancel": "Cancel",
+    "send": "Send",
+    "validation_pending": "Validation pending",
+    "validated": "Validated",
+    "edit": "Edit",
+    "procedure": "Go to procedure",
+    "delete":"Delete"
+  },
+  "input_labels": {
+    "doc_type": "Document Type",
+    "exp_date": "Expiration Date",
+    "upload_doc": "Upload Document",
+    "read": "Read Along",
+    "email": "Email",
+    "shareable":"Shareable"
+  },
+  "desc_labels": {
+    "cost": "Cost for the step",
+    "location": "Location",
+    "description": "Description",
+    "search": "Search",
+    "document_type": "Document type",
+    "document_issuer": "Document issuer",
+    "reviewed_by": "Reviewed by",
+    "expiration_date": "Expiration date",
+    "review_date": "Review date",
+    "login_register": "Login/Register",
+    "settings": "Settings",
+    "logout": "Logout",
+    "required_documents": "Required documents",
+    "privacy_settings": "Privacy Settings",
+    "comments": "Comments",
+    "send_doc": "Please choose an email adress",
+    "plan_progress": "Plan Progress",
+    "integration_plan": "My personal Plan",
+    "personal": "Personal area",
+    "survey":"Survey!",
+    "document_sent":"Your document was successfully sent to",
+    "document_delete":"Do you want to delete this document?",
+    "document_download":"Download this document",
+    "edit_doc":"Edit your document",
+    "add_doc":"Add new document",
+    "image":"Image", 
+    "click_step":"Click on a step above for details",
+    "emitter":"Emitted by",
+    "send_doc_pa":"Select a public autorithy",
+    "send_doc_me":"Send to other mail",
+    "loading":"Loading..."
+  },
+  "profile": {
+    "change_pic": "Change picture",
+    "username": "Username",
+    "password": "Password",
+    "legal_name": "Legal Name",
+    "country": "Country",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "personal_profile": "Personal Profile",
+    "phone_number": "Phone Number",
+    "mail": "Email",
+    "old_pass": "Old Password",
+    "new_pass": "New Password",
+    "confirm_pass": "Confirm password",
+    "user_pref": "User Preferences",
+    "password_change":"Change your password",
+    "password_changed":"You successfully changed your password"
+  },
+  "filters": {
+    "title": "Filter by",
+    "categories": "Categories",
+    "topics": "Topics",
+    "user_types": "User types",
+    "date": "Date",
+    "clear_all": "Clear all",
+    "apply": "Apply"
+  },
+  "information_centre": {
+    "category": "Category",
+    "missing_content": "There is no information",
+    "topics": "Topics",
+    "user_types": "User types",
+    "organizer": "Organizer/Created by"
+  },
+  "tasks": {
+    "ask_validation": "Ask for validation",
+    "you_validate": "Validate task",
+    "dialog_title_org": "Choose the validator's organization",
+    "dialog_title_self": "Validate the task",
+    "integration_type_validators": "validator's organization"
+  },
+  "events": {
+    "category": "Category",
+    "start_date": "Start date",
+    "finish_date": "Finish date",
+    "missing_content": "There are no events",
+    "location": "Location",
+    "organizer": "Organizer",
+    "topics": "Topics",
+    "user_types": "User types",
+    "cost": "Cost",
+    "cost_free": "Free"
+  },
+  "glossary": {
+    "missing_content": "There are no common words"
+  },
+  "date_selector": {
+    "close": "Close"
+  },
+  "feedback": {
+    "mail": "Your feedback will be sent to",
+    "url": "Your feedback will be about the page found at",
+    "feedback": "Write your feedback in the textbox below",
+    "send": "Send feedback",
+    "send_pa":"Send Feedback to PA",
+    "feedback_question":"Send us feedback! How do you like the page you are currently viewing?",
+    "feedback_sent":"Your feedback was successfully sent to the Public Authorities",
+    "thanks":"Thank you"
+  },
+  "internal_reference": {
+    "default_title": "Internal reference",
+    "more_info_1": "More information for",
+    "more_info_2": "can be found at:",
+    "go_to_reference": "Go to reference"
+  },
+  "icon_overlay": {
+    "topic": "Topic",
+    "user_type": "User type"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "rasa",
+  "connector": "rest",
+  "baseURL": "https://{baseurl}",
+  "debug": true,
+  "options": {
+    "headers": {
+      "accept": "*/*",
+      "content-type": "application/json",
+      "Authorization": "token {token}"
+    },
+    "strictSSL": false
+  },
+  "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "POST",
+        "url": "http://{baseurl}:5005/model/train",
+        "headers": {
+          "accept": "*/*",
+          "content-type": "application/json"
+        },
+        "query": {
+          "token": "{token}"
+        },
+        "body": "{payload}",
+        "options": {
+          "strictSSL": false,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "train": [
+          "token",
+          "payload",
+          "baseurl"
+        ]
+      }
+    }
+  ]
+}
