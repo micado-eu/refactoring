@@ -12,12 +12,24 @@ import { MySequence } from './sequence';
 import { CrudRestComponent } from '@loopback/rest-crud';
 import multer from 'multer';
 import { STORAGE_DIRECTORY, FILE_UPLOAD_SERVICE } from './services/file-upload-service.service'
+// added for keycloak
+import { AuthorizationComponent, AuthorizationBindings } from './comp/lb4-authorization/src';
+import {
+  AuthorizationKeycloakComponent,
+  AuthorizationKeycloakBindings, KeycloakAuthorizeActionProvider
+} from './comp/lb4-authorization-keycloak/src';
+import { KeycloakClientConfigProvider } from './providers';
 
 export class MicadoBackendApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
+    // for keycloak
+    this.component(AuthorizationComponent);
+    this.component(AuthorizationKeycloakComponent);
+    this.bind(AuthorizationKeycloakBindings.Providers.KEYCLOAK_CLIENT_CONFIG).toProvider(KeycloakClientConfigProvider);
+    this.bind(AuthorizationBindings.Providers.AUTHORIZE_ACTION).toProvider(KeycloakAuthorizeActionProvider);
 
     // Set up the custom sequence
     this.sequence(MySequence);

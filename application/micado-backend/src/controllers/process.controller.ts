@@ -20,6 +20,7 @@ import { Process } from '../models';
 import { ProcessRepository } from '../repositories';
 import { SettingsRepository } from '../repositories';
 import { LanguagesRepository } from '../repositories';
+import { roles } from '../comp/lb4-authorization/src';
 
 
 export class ProcessController {
@@ -53,6 +54,7 @@ export class ProcessController {
     return this.processRepository.create(process);
   }
 
+  @roles('realm:migrants')
   @get('/processes/count', {
     responses: {
       '200': {
@@ -217,7 +219,7 @@ export class ProcessController {
     },
   })
   async publish (
-    @param.query.number('id') id:number,
+    @param.query.number('id') id: number,
   ): Promise<void> {
     let settings = await this.settingsRepository.find({});
     //   let lang_filter = { where: { active: true } }
@@ -226,10 +228,10 @@ export class ProcessController {
     let idx = languages.findIndex(el => el.lang == def_lang.value)
     languages.splice(idx, 1)
 
-     this.processRepository.dataSource.execute("insert into process_translation_prod(id, lang ,process , description ,translation_date) select process_translation.id, process_translation.lang, process_translation.process, process_translation.description , process_translation.translation_date from process_translation  where "+'"translationState"'+" >= '2' and id=$1 and lang=$2", [id, def_lang.value]);
-     languages.forEach((lang:any)=>{
-      this.processRepository.dataSource.execute("insert into process_translation_prod(id, lang ,process , description ,translation_date) select process_translation.id, process_translation.lang, process_translation.process, process_translation.description , process_translation.translation_date from process_translation  where "+'"translationState"'+" > '2' and id=$1 and lang=$2", [id, lang.lang]);
-     })
+    this.processRepository.dataSource.execute("insert into process_translation_prod(id, lang ,process , description ,translation_date) select process_translation.id, process_translation.lang, process_translation.process, process_translation.description , process_translation.translation_date from process_translation  where " + '"translationState"' + " >= '2' and id=$1 and lang=$2", [id, def_lang.value]);
+    languages.forEach((lang: any) => {
+      this.processRepository.dataSource.execute("insert into process_translation_prod(id, lang ,process , description ,translation_date) select process_translation.id, process_translation.lang, process_translation.process, process_translation.description , process_translation.translation_date from process_translation  where " + '"translationState"' + " > '2' and id=$1 and lang=$2", [id, lang.lang]);
+    })
   }
 }
 

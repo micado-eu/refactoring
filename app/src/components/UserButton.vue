@@ -1,5 +1,9 @@
 <template>
-  <q-btn v-if="false" color="white" round>
+  <q-btn
+    v-if="false"
+    color="white"
+    round
+  >
     <q-avatar
       size="42px"
       data-cy="userButton"
@@ -58,7 +62,7 @@ import storeMappingMixin from '../mixin/storeMappingMixin'
 
 export default {
   name: 'UserButton',
-   mixins: [
+  mixins: [
     storeMappingMixin({
       getters: {
         user: 'user/users',
@@ -70,12 +74,15 @@ export default {
   ],
   data () {
     return {
-      userpic:null
+      userpic: null
     }
   },
   methods: {
     toLogin () {
-      this.$auth.login()
+      console.log("******************** LOGIN x keycloak")
+      console.log(this)
+      this.$keycloak.login()
+      //this.$auth.login()
 
       /*
       let d = new Date()
@@ -103,17 +110,17 @@ export default {
       this.$router.push({ name: 'settings' })
     }
   },
-   created () {
+  created () {
     //var userId = this.$store.state.auth.user.umid
-    if(this.$store.state.auth.user != null){
-          this.fetchSpecificUser( this.$store.state.auth.user.umid).then((user)=>{
-      if(user.userPicture){
-        this.userpic= this.user.userPicture.picture
-      }
-      else{
-        this.userpic= null
-      }
-    })
+    if (this.$store.state.auth.user != null) {
+      this.fetchSpecificUser(this.$store.state.auth.user.umid).then((user) => {
+        if (user.userPicture) {
+          this.userpic = this.user.userPicture.picture
+        }
+        else {
+          this.userpic = null
+        }
+      })
     }
 
   }
