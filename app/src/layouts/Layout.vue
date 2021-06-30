@@ -27,6 +27,12 @@
           :label="$t('desc_labels.survey')"
           @click="generateSurvey"
         />
+        <q-btn
+          no-caps
+          style="background-color:white; color:#0B91CE"
+          label="call backend"
+          @click="callBackend()"
+        />
         <FeedbackButton />
         <q-btn
           color="white"
@@ -140,6 +146,7 @@
 </template>
 
 <script>
+import client_proc from 'api-flows-client'
 //import AuthMenu from "./auth/AuthMenu";
 //import ListenToggle from "components/ListenToggle";
 import LanguageSelector from "components/LanguageSelector";
@@ -402,6 +409,13 @@ export default {
 
   },
   methods: {
+    callBackend(){
+      client_proc.keycloakProcess().then((res)=>{
+        console.log("after calling backend")
+        console.log("I am response from backend")
+        console.log(res)
+      })
+    },
     consent () {
       klaro.show(this.klaro_config)
 

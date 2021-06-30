@@ -34,5 +34,14 @@ export default {
       })
       .catch(error_handler);
   },
+  keycloakProcess(){
+    console.log("calling backend")
+    return axiosInstance
+      .get('http://localhost:3000/processes/count')
+      .then((response) => {
+        return response.data
+      })
+      .catch(error_handler);
+  }
   
 }
