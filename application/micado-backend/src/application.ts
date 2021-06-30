@@ -23,7 +23,8 @@ import { KeycloakClientConfigProvider } from './providers';
 export class MicadoBackendApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
-  constructor(options: ApplicationConfig = {}) {
+  // micado_options: any = { rest: {  cors: { origin: '*', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', preflightContinue: false, optionsSuccessStatus: 204, maxAge: 86400, credentials: true,      },    }  };
+  constructor(options: ApplicationConfig = { rest: { cors: { origin: '*', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', preflightContinue: false, optionsSuccessStatus: 204, maxAge: 86400, credentials: true, }, } }) {
     super(options);
     // for keycloak
     this.component(AuthorizationComponent);

@@ -27,6 +27,7 @@ export interface KeycloakClientConfig {
   'ssl-required': string;
   resource: string;
   credentials?: Credentials;
+  'public-client': boolean;
   'use-resource-role-mappings': boolean;
   'confidential-port': number;
 }

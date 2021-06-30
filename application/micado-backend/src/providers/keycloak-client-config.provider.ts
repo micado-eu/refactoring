@@ -7,12 +7,14 @@ export class KeycloakClientConfigProvider
 
     value (): KeycloakClientConfig {
         return {
-            'auth-server-url': 'http://localhost:8090/auth',
+            'auth-server-url': 'http://localhost:8090/auth/',
             'confidential-port': 0,
             'ssl-required': 'external',
+            'public-client': true,
             'use-resource-role-mappings': true,
             realm: 'migrants',
-            resource: 'loopback'
+            resource: 'migrant_app'
         };
     }
 }
+

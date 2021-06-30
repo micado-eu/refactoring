@@ -3,12 +3,13 @@ import { KeycloakClientConfig } from '../types';
 
 export class KeycloakClientConfigProvider
   implements Provider<KeycloakClientConfig> {
-  constructor() {}
+  constructor() { }
 
-  value(): KeycloakClientConfig {
+  value (): KeycloakClientConfig {
     return {
       'auth-server-url': 'some-auth-server-url',
       'confidential-port': 8888,
+      'public-client': true,
       'ssl-required': 'some-ssl-required',
       'use-resource-role-mappings': true,
       realm: 'some-realm',
