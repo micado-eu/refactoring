@@ -23,7 +23,7 @@ export default async ({ Vue, router, store, app }) => {
                 checkLoginIframe: false // otherwise it would reload the window every so seconds
             },
             config: {
-                url: 'http://localhost:8090/auth',
+                url: 'http://keycloak:8080/auth',
                 realm: 'migrants',
                 clientId: 'migrant_app'
             },

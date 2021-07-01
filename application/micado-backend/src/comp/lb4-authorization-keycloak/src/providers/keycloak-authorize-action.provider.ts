@@ -94,20 +94,34 @@ export class KeycloakAuthorizeActionProvider
 
     console.log("########")
     if (request.headers.authorization) {
+      var options = {
+        'method': 'GET',
+        'url': `http://${keycloakHost}:${keycloakPort}/auth/realms/${realmName}/protocol/openid-connect/userinfo`,
+        'headers': {
+          'Authorization': request.headers.authorization
+        }
+      };
+      console.log(options)
+      requester(options, function (error:any, response:any) {
+        if (error) throw new Error(error);
+        console.log(response.body);
+      });
       // configure the request to your keycloak server
-      const options = {
+     /* const options = {
         method: 'GET',
         url: `http://${keycloakHost}:${keycloakPort}/auth/realms/${realmName}/protocol/openid-connect/userinfo`,
         headers: {
           // add the token you received to the userinfo request, sent to keycloak
-          Authorization: request.headers.authorization,
+          'Authorization': request.headers.authorization,
         },
       };
+      let opt = JSON.parse(JSON.stringify(options))
       console.log("there is a token")
       console.log(request.headers.authorization)
-      console.log(options)
+      console.log(request.headers.authorization)
+      console.log(opt)
       // send a request to the userinfo endpoint on keycloak
-      const response = await requestPromise(options, (error: any, response: any, body: any) => {
+      const response = await requestPromise(opt, (error: any, response: any, body: any) => {
         console.log("in the requester function return")
         console.log(error)
         if (error) {
@@ -131,7 +145,7 @@ export class KeycloakAuthorizeActionProvider
         }
         return
       })
-      console.log("after requester")
+      console.log("after requester")*/
     } else {
       console.log("there is no token")
     }
