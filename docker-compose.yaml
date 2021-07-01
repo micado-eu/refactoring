@@ -106,6 +106,8 @@ services:
     env_file:
       - .env
       - prod.env
+    volumes:
+      - ./themes/micado:/opt/jboss/keycloak/themes/micado
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: micado_db
